@@ -5,45 +5,54 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.newsapp2.R
 
-class RecyclerAdapter( private var author:List<String>,
-                       private var content:List<String>,
+
+class RecyclerAdapter(
+    private var author: List<String>,
+    private var content: List<String>,
     private var titles: List<String>,
-                     private var details: List<String>,
-                     private var images: List<String>,
-                     private var links: List<String>
-                     ):RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+    private var details: List<String>,
+    private var images: List<String>,
+    private var links: List<String>
+):RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val itemTitle : TextView=itemView.findViewById(R.id.tv_title)
-        val itemDetail : TextView=itemView.findViewById(R.id.tv_description)
-        val itemPicture : ImageView=itemView.findViewById(R.id.iv_image)
+        
+            val itemTitle: TextView = itemView.findViewById(R.id.tv_title)
+            val itemDetail: TextView = itemView.findViewById(R.id.tv_description)
+            val itemPicture: ImageView = itemView.findViewById(R.id.iv_image)
+            val delete_button: Button = itemView.findViewById(R.id.button)
+               
+            init{
+                itemView.setOnClickListener { v: View ->
+                    val position: Int = adapterPosition
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(links[position])
+                    startActivity(itemView.context, intent, null)
 
-        init {
-            itemView.setOnClickListener{ v : View ->
-                val position : Int = adapterPosition
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(links[position])
-                startActivity(itemView.context,intent,null)
 
+                }
+                delete_button.setOnClickListener {
+                    itemView.removeAt(adapterPosition)
+                notifyItemChanged(adapterPosition)
+                    notifyItemRemoved(adapterPosition)
+                }
             }
-        }
-
-
-
-
-
     }
 
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
+
+
         val v:View = LayoutInflater.from(parent.context).inflate(R.layout.item_layout,parent,false)
         return ViewHolder(v)
     }
@@ -61,3 +70,11 @@ class RecyclerAdapter( private var author:List<String>,
         return  titles.size
     }
 }
+
+private fun View.removeAt(adapterPosition: Int) {
+
+}
+
+
+
+

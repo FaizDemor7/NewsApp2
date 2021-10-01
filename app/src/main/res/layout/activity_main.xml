@@ -18,18 +18,23 @@
         tools:itemCount="17"
         tools:listitem="@layout/item_layout" />
 
-    <View
-        android:id="@+id/v_blackScreen"
-        android:background="@android:color/black"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         style="?android:attr/progressBarStyle"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="Submit"
+        android:src="@drawable/ic_baseline_sort_24" />
 
 </RelativeLayout>

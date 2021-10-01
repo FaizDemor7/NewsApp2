@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Faiz Demo/AndroidStudioProjects/NewsApp2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Faiz Demo/AndroidStudioProjects/NewsApp2/app/src/main/res/layout/activity_filter.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Faiz Demo/AndroidStudioProjects/NewsApp2/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Faiz Demo/AndroidStudioProjects/NewsApp2/app/src/main/res/layout/filter_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Faiz Demo/AndroidStudioProjects/NewsApp2/app/src/main/res/layout/item_layout.xml" value="0.25" />
       </map>
     </option>

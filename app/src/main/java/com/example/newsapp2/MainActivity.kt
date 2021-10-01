@@ -1,10 +1,12 @@
 package com.example.newsapp2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +43,13 @@ class MainActivity : AppCompatActivity() {
 
         makeAPIRequest()
 
+      val fab : Button = findViewById(R.id.fab)
+      fab.setOnClickListener {
+          val intent= Intent(this,Filter::class.java)
+      }
+
+
+
     }
 
     private fun fadeInFromBlack(){
@@ -55,6 +64,8 @@ class MainActivity : AppCompatActivity() {
     private fun setUpRecyclerView(){
         rv_recyclerView.layoutManager = LinearLayoutManager(applicationContext)
         rv_recyclerView.adapter = RecyclerAdapter(titlesList,descList,imagesList,linksList,authorList,contentList)
+
+
     }
 
     private fun addToList(
@@ -92,6 +103,8 @@ class MainActivity : AppCompatActivity() {
                 for (article in response.articles) {
                     Log.i("MainActivity","Result= $article")
                     addToList(article.title,article.description,article.urlToImage,article.url,article.author,article.content)
+
+
                 }
                 withContext(Dispatchers.Main){
                     setUpRecyclerView()

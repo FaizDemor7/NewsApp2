@@ -48,6 +48,20 @@
             android:textSize="14sp"
             android:layout_marginStart="10dp"/>
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/ic_baseline_delete_outline_24"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".08"
+            tools:ignore="SpeakableTextPresentCheck" />
+
     </LinearLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
